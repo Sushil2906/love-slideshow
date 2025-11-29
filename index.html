@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayu, meri sona… please wapas aa ja ♡</title>
+    <style>
+        body,html{height:100%;margin:0;background:#000;color:#fff;font-family:'Segoe UI',Arial,sans-serif;overflow:hidden;position:relative;}
+        .container{width:100%;height:100%;position:relative;}
+        .slides{display:flex;width:3600%;height:100%;transition:all 1.2s cubic-bezier(0.7,0,0.3,1);}
+        .heart-burst{animation:heartBurst 1.2s ease-out;}
+        .love-glow{animation:loveGlow 1s ease-in-out;}
+        .romantic-spin{animation:romanticSpin 1s ease-in-out;}
+        .dreamy-fade{animation:dreamyFade 1s ease-in-out;}
+        .sparkle-zoom{animation:sparkleZoom 1s ease-out;}
+        .kiss-float{animation:kissFloat 1.2s ease-in-out;}
+        .heart-pulse{animation:heartPulse 1s ease-in-out;}
+        .magic-reveal{animation:magicReveal 1.2s ease-out;}
+        @keyframes heartBurst{0%{transform:scale(0);opacity:0;filter:hue-rotate(0deg);}50%{transform:scale(1.3);filter:hue-rotate(180deg);}100%{transform:scale(1);opacity:1;filter:hue-rotate(360deg);}}
+        @keyframes loveGlow{0%{opacity:0;box-shadow:0 0 0 rgba(255,182,193,0);}50%{box-shadow:0 0 50px rgba(255,182,193,0.8);}100%{opacity:1;box-shadow:0 0 20px rgba(255,182,193,0.4);}}
+        @keyframes romanticSpin{0%{transform:rotateY(-180deg) scale(0.5);opacity:0;}100%{transform:rotateY(0) scale(1);opacity:1;}}
+        @keyframes dreamyFade{0%{opacity:0;transform:translateY(30px) scale(0.9);filter:blur(5px);}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}}
+        @keyframes sparkleZoom{0%{transform:scale(0.3) rotate(-10deg);opacity:0;}30%{transform:scale(1.1) rotate(5deg);}60%{transform:scale(0.95) rotate(-2deg);}100%{transform:scale(1) rotate(0);opacity:1;}}
+        @keyframes kissFloat{0%{transform:translateY(50px) scale(0.8);opacity:0;}50%{transform:translateY(-10px) scale(1.05);}100%{transform:translateY(0) scale(1);opacity:1;}}
+        @keyframes heartPulse{0%{transform:scale(0.8);opacity:0;filter:brightness(0.5);}25%{transform:scale(1.1);filter:brightness(1.2);}50%{transform:scale(0.95);filter:brightness(1.5);}75%{transform:scale(1.02);filter:brightness(1.1);}100%{transform:scale(1);opacity:1;filter:brightness(1);}}
+        @keyframes magicReveal{0%{opacity:0;transform:scale(0.5) rotateX(-90deg);filter:saturate(0);}50%{transform:scale(1.1) rotateX(-45deg);filter:saturate(1.5);}100%{opacity:1;transform:scale(1) rotateX(0);filter:saturate(1);}}
+        .slide{
+            width:2.777%;height:100%;display:flex;justify-content:center;align-items:center;text-align:center;
+            padding:40px;box-sizing:border-box;flex-shrink:0;position:relative;
+        }
+        .pic-slide{
+            background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;
+        }
+        .love-effect{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;}
+        .love-effect span{position:absolute;font-size:40px;opacity:0.8;animation:loveFloat 3s infinite ease-in-out;}
+        @keyframes loveFloat{
+            0%{transform:translateY(0) scale(0.8);opacity:0.9;}
+            50%{transform:translateY(-20px) scale(1.2);opacity:1;}
+            100%{transform:translateY(0) scale(0.8);opacity:0.9;}
+        }
+        .content{
+            font-size:42px;line-height:1.8;max-width:92%;
+            animation: breathe 4s infinite ease-in-out;
+        }
+        @keyframes breathe{
+            0%{transform:scale(0.95);opacity:0.9;}
+            50%{transform:scale(1.05);opacity:1;}
+            100%{transform:scale(0.95);opacity:0.9;}
+        }
+
+        /* Backgrounds */
+        .s1{background:linear-gradient(135deg,#ff9a9e,#fad0c4);}
+        .s2{background:linear-gradient(135deg,#fbc2eb,#a18cd1);}
+        .s3{background:linear-gradient(135deg,#ffecd2,#fca5a5);}
+        .s4{background:linear-gradient(135deg,#d299c2,#fef5e1);}
+        .s5{background:linear-gradient(135deg,#84fab0,#8ec5fc);}
+        .s6{background:linear-gradient(135deg,#a18cd1,#fbc8d4);}
+        .s7{background:linear-gradient(135deg,#ff9a9e,#fad0c4);}
+        .s8{background:linear-gradient(135deg,#c2e9fb,#a1c4fd);}
+        .s9{background:linear-gradient(135deg,#ffdde1,#ee9ca7);}
+        .s10{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;}
+        .s11{background:linear-gradient(135deg,#f093fb,#f5576c);color:#fff;}
+        .s12{background:linear-gradient(135deg,#89f7fe,#66a6ff);}
+        .s13{background:linear-gradient(135deg,#fad0c4,#ffd1ff);}
+        .s14{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;}
+        .s15{background:linear-gradient(135deg,#ff9a9e,#fecfef);}
+        .s16{background:linear-gradient(135deg,#f857a6,#ff5858);color:#fff;}
+        .s17{background:linear-gradient(135deg,#11998e,#38ef7d);color:#fff;}
+        .s18{background:linear-gradient(135deg,#ff0080,#ff8c00);color:#fff;}
+
+        /* Falling hearts */
+        .falling-hearts{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:1;}
+        .falling-hearts span{position:absolute;font-size:32px;opacity:0.7;animation:fall linear infinite;}
+        @keyframes fall{
+            0%{transform:translateY(-100px) rotate(0deg);opacity:0.8;}
+            100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+        }
+
+        /* Buttons */
+        .nav{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:40px;}
+        button{
+            padding:15px 45px;background:rgba(255,255,255,0.2);color:#fff;border:2px solid rgba(255,255,255,0.4);
+            border-radius:50px;font-size:24px;cursor:pointer;transition:all 0.4s;box-shadow:0 8px 20px rgba(0,0,0,0.3);
+            backdrop-filter:blur(10px);
+        }
+        button:hover{background:rgba(255,255,255,0.35);transform:scale(1.08);}
+        button:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+    </style>
+</head>
+<body>
+
+    <div class="falling-hearts" id="hearts"></div>
+
+    <div class="container">
+        <div class="slides" id="slides">
+
+            <!-- 1 -->
+            <div class="slide s1"><div class="content">
+                Ayu ♡<br>
+                Meri jaan, meri sona, meri duniya, meri princess ♡<br>
+                Bas dil se padh lena… please 🥺✨
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1385845900.jpg');">
+                <div class="love-effect">
+                    <span style="top:20%;left:15%;">💕</span>
+                    <span style="top:70%;right:20%;">💖</span>
+                    <span style="top:40%;left:80%;">♡</span>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="slide s2"><div class="content">
+                😢<br>
+                Dil se maafi maangta hoon<br>
+                jo bhi galti hui, jo bhi takleef di ♡<br>
+                "main apko but yakin mano apse jyada khud ko hurt kiya hu"
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1574170054.jpg');">
+                <div class="love-effect">
+                    <span style="top:25%;left:70%;">💗</span>
+                    <span style="top:60%;left:25%;">🥰</span>
+                    <span style="top:80%;right:15%;">💞</span>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="slide s3"><div class="content">
+                Tere bina har saans adhuri lagti hai<br>
+                Har khushi mein teri kami satati hai 🌸💔<br>
+                🥀♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1682145597.jpg');">
+                <div class="love-effect">
+                    <span style="top:30%;right:25%;">💝</span>
+                    <span style="top:15%;left:60%;">😍</span>
+                    <span style="top:75%;left:40%;">💘</span>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="slide s4"><div class="content">
+                Ab poora ehsaas ho gaya<br>
+                maine kitni badi galti kar di<br>
+                Tujhe dard dena meri zindagi ka sabse bada gunah ban gaya ♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1822125879.jpg');">
+                <div class="love-effect">
+                    <span style="top:40%;left:20%;">💓</span>
+                    <span style="top:20%;right:30%;">😘</span>
+                    <span style="top:65%;right:10%;">💌</span>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="slide s5"><div class="content">
+                Main tere liye badal gya<br>
+                poori tarah se, dil se, rooh se ♡<br>
+                meri sona sach hai ye i am changed myself for uh<br>
+                🤍✨
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1855719144.jpg');">
+                <div class="love-effect">
+                    <span style="top:35%;left:75%;">💟</span>
+                    <span style="top:55%;left:15%;">🤗</span>
+                    <span style="top:10%;left:45%;">💜</span>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="slide s6"><div class="content">
+                Woh galti kabhi zindagi mein dobara nahi hogi<br>
+                Pakka wada hai tere babu ka ♡<br>
+                💍♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1866108773.jpg');">
+                <div class="love-effect">
+                    <span style="top:50%;right:20%;">❤️</span>
+                    <span style="top:25%;left:30%;">😻</span>
+                    <span style="top:70%;left:65%;">💚</span>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="slide s7"><div class="content">
+                Tu meri subah ki pehli kiran hai<br>
+                meri raat ka sukoon, mera chain ♡<br>
+                Bina tere dil har waqt rota rehta hai 🌙💔
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1885684000.jpg');">
+                <div class="love-effect">
+                    <span style="top:15%;right:40%;">🧡</span>
+                    <span style="top:45%;left:10%;">🥺</span>
+                    <span style="top:80%;right:35%;">💛</span>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="slide s8"><div class="content">
+                Tera pyar duniya mein kahin nahi milta<br>
+                Main us pyar ko aankhon par rakhunga hamesha ♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-2031035991.jpg');">
+                <div class="love-effect">
+                    <span style="top:60%;left:80%;">🤍</span>
+                    <span style="top:30%;left:25%;">😇</span>
+                    <span style="top:10%;right:15%;">🖤</span>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="slide s9"><div class="content">
+                Har pal, har saans mein bas tu hi tu hai<br>
+                Teri smile, teri baatein, tera saath ♡<br>
+                😢💞
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-2032138104.jpg');">
+                <div class="love-effect">
+                    <span style="top:45%;right:30%;">💋</span>
+                    <span style="top:20%;left:50%;">🌹</span>
+                    <span style="top:75%;left:20%;">💐</span>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="slide s10"><div class="content">
+                Main tha, hoon, aur<br>
+                hamesha sirf tera rahunga ♡<br>
+                "ap meri ekloti wish ho jisko pane ke liye roz raat main pray karke sota hu"
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-232843116.jpg');">
+                <div class="love-effect">
+                    <span style="top:35%;left:65%;">🌺</span>
+                    <span style="top:55%;right:25%;">🌸</span>
+                    <span style="top:15%;left:20%;">🌷</span>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="slide s11"><div class="content">
+                main apki abse hamesha baat sununga<br>
+                kuch bhi ho meri jaan sabse pehle apke pass aunga ♡<br>
+                🌹💗✨
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-307712247.jpg');">
+                <div class="love-effect">
+                    <span style="top:25%;right:35%;">🌻</span>
+                    <span style="top:65%;left:30%;">✨</span>
+                    <span style="top:40%;right:10%;">⭐</span>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="slide s12"><div class="content">
+                bina apko bataye kuch nhi karunga<br>
+                ap jaisa bologi waisa karunga but please🥺😖 ♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-335086595.jpg');">
+                <div class="love-effect">
+                    <span style="top:50%;left:70%;">🌟</span>
+                    <span style="top:20%;left:40%;">💫</span>
+                    <span style="top:70%;right:20%;">🎀</span>
+                </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="slide s13"><div class="content">
+                I love you Ayu ♡<br>
+                I love you more than yesterday ♡<br>
+                I will love you till my last breath ♡<br>
+                💖✨
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-525327308.jpg');">
+                <div class="love-effect">
+                    <span style="top:30%;left:15%;">🎁</span>
+                    <span style="top:60%;right:30%;">🍰</span>
+                    <span style="top:10%;right:45%;">🧸</span>
+                </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="slide s14"><div class="content">
+                Please wapas aa ja ♡<br>
+                Ek baar baat kar le meri sona<br>
+                dil ko sukoon mil jaayega 🥺💕
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-622185969.jpg');">
+                <div class="love-effect">
+                    <span style="top:40%;left:75%;">🦋</span>
+                    <span style="top:25%;left:35%;">🌈</span>
+                    <span style="top:75%;right:15%;">☀️</span>
+                </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="slide s15"><div class="content">
+                Meri sona ♡ Meri jaan ♡<br>
+                Main tujhse bahut zyada pyar karta hoon<br>
+                aaj bhi… kal bhi… hamesha bhi ♡<br>
+                – Tera wahi babu jo sirf tera hai aur hamesha rahega
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-696870828.jpg');">
+                <div class="love-effect">
+                    <span style="top:55%;left:25%;">🌙</span>
+                    <span style="top:15%;right:25%;">💎</span>
+                    <span style="top:80%;left:60%;">👑</span>
+                </div>
+            </div>
+
+            <!-- 16 -->
+            <div class="slide s16"><div class="content">
+                I LOVE YOU<br>
+                ∞ × ∞ × ∞<br>
+                Maaf kar de na meri sona 🥺<br>
+                Bas ek baar waps ajana  ♡<br>
+                Tere bin jee nahi lagta ab ♡<br>
+                💗✨💖🌸💕♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-872087197.jpg');">
+                <div class="love-effect">
+                    <span style="top:35%;right:40%;">💍</span>
+                    <span style="top:65%;left:45%;">🔥</span>
+                    <span style="top:20%;left:70%;">💯</span>
+                </div>
+            </div>
+
+            <!-- 17 -->
+            <div class="slide s17"><div class="content">
+                Tu nahi toh kuch bhi acha nahi lagta♡<br>
+                Tere bina yeh saansein bhi bojh lagti hain<br>
+                Tu wapas aa ja,is baar wo glti nhi hogi sach main♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Screenshot 2025-11-29 234538.png');">
+                <div class="love-effect">
+                    <span style="top:45%;left:20%;">🎉</span>
+                    <span style="top:30%;right:20%;">🎊</span>
+                    <span style="top:70%;left:50%;">🥳</span>
+                </div>
+            </div>
+
+            <!-- 18 Final -->
+            <div class="slide s18"><div class="content">
+                Forever Yours ♡<br>
+                Tu meri woh kahani hai<br>
+                jo kabhi khatam nahi ho skti ♡<br><br>
+                ♡🥺💕🌸💗✨💖🌷🥰♡<br><br>
+                – meri babu, we both are together forever ♡
+            </div></div>
+            <div class="slide pic-slide" style="background-image:url('New folder/Snapchat-1385845900.jpg');">
+                <div class="love-effect">
+                    <span style="top:25%;left:40%;">♾️</span>
+                    <span style="top:60%;right:35%;">💕</span>
+                    <span style="top:10%;right:10%;">♡</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="nav">
+        <button id="prev">← Previous</button>
+        <button id="next">Next →</button>
+    </div>
+
+    <script>
+        const slides = document.getElementById('slides');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        let currentIndex = 0;
+        const totalSlides = 36;
+
+        function updateButtons() {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === totalSlides - 1;
+        }
+
+        const animations = ['heart-burst', 'love-glow', 'romantic-spin', 'dreamy-fade', 'sparkle-zoom', 'kiss-float', 'heart-pulse', 'magic-reveal'];
+        
+        function addSlideAnimation() {
+            const currentSlide = document.querySelectorAll('.slide')[currentIndex];
+            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            currentSlide.classList.add(randomAnim);
+            setTimeout(() => currentSlide.classList.remove(randomAnim), 800);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                slides.style.transform = `translateX(-${currentIndex * (100/36)}%)`;
+                addSlideAnimation();
+                updateButtons();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                slides.style.transform = `translateX(-${currentIndex * (100/36)}%)`;
+                addSlideAnimation();
+                updateButtons();
+            }
+        });
+
+        updateButtons();
+
+        // Falling hearts
+        const heartsContainer = document.getElementById("hearts");
+        const hearts = ["♡", "♥", "❤", "💕", "💖", "💗", "✨", "🌸", "🌷"];
+        setInterval(() => {
+            const h = document.createElement("span");
+            h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDuration = Math.random()*4 + 5 + "s";
+            heartsContainer.appendChild(h);
+            setTimeout(() => h.remove(), 10000);
+        }, 350);
+    </script>
+</body>
+</html>
